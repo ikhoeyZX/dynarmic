@@ -176,9 +176,10 @@ namespace Catch {
         // nobody overwrote them in the meantime, and doesn't expect
         // their signal handlers to live past ours given that they
         // installed them after ours..
-        for (std::size_t i = 0; i < sizeof(signalDefs) / sizeof(SignalDefs); ++i) {
+  /*      for (std::size_t i = 0; i < sizeof(signalDefs) / sizeof(SignalDefs); ++i) {
             sigaction(signalDefs[i].id, &oldSigActions[i], nullptr);
         }
+   */
         // Return the old stack
         sigaltstack(&oldSigStack, nullptr);
     }
@@ -215,7 +216,7 @@ namespace Catch {
     }
 
     void FatalConditionHandler::engage_platform() {
-        stack_t sigStack;
+    /*    stack_t sigStack;
         sigStack.ss_sp = altStackMem;
         sigStack.ss_size = altStackSize;
         sigStack.ss_flags = 0;
@@ -226,7 +227,7 @@ namespace Catch {
         sa.sa_flags = SA_ONSTACK;
         for (std::size_t i = 0; i < sizeof(signalDefs)/sizeof(SignalDefs); ++i) {
             sigaction(signalDefs[i].id, &sa, &oldSigActions[i]);
-        }
+        } */
     }
 
 #if defined(__GNUC__)
