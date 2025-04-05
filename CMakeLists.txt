@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.15)
 project(dynarmic LANGUAGES C CXX ASM VERSION 6.7.0)
 
 # Determine if we're built as a subproject (using add_subdirectory)
